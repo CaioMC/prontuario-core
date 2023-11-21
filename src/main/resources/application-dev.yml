@@ -21,10 +21,10 @@ spring:
 
 management:
   server:
-    port: 9781
+    port: 9782
 
 server:
-  port: 8781
+  port: 8782
 
 logging:
   level:

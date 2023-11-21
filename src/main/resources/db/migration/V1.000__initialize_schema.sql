@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS paciente
     rg             VARCHAR,
 
     telefone          VARCHAR,
-    telefoneTrabalho  VARCHAR,
+    telefone_trabalho  VARCHAR,
 
     cep          VARCHAR,
     endereco     VARCHAR,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS paciente
     uf           SMALLINT,
 
     convenio     VARCHAR,
-    numeroCarteirinha INT,
+    numero_carteirinha INT,
     acomodacao        VARCHAR,
     plano             VARCHAR,
     validade          TIMESTAMP,
