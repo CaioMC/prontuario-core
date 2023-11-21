@@ -1,6 +1,7 @@
 package com.titan.prontuario.sys.core.atendimento.domain;
 
 import com.titan.prontuario.sys.core.atendimento.IncluirAtendimentoUseCase;
+import com.titan.prontuario.sys.core.atendimento.UpdateAtendimentoUseCase;
 import com.titan.prontuario.sys.core.infra.config.domain.entity.AbstractAuditableAggregate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -8,6 +9,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -43,4 +45,16 @@ public class Atendimento extends AbstractAuditableAggregate {
 		);
 	}
 
+	public Atendimento updateAtendimento(UpdateAtendimentoUseCase.UpdateAtendimentoCommand cmd) {
+		this.queixaPrincipal = cmd.queixaPrincipal();
+		this.historicoAntecedentes = cmd.historicoAntecedentes();
+		this.exameFisico = cmd.exameFisico();
+		this.condutas = cmd.condutas();
+		this.diagnostico = cmd.diagnostico();
+		this.dataAtendimento = cmd.dataAtendimento();
+		this.pacienteId = cmd.pacienteId();
+		this.profissionalId = cmd.profissionalId();
+
+		return this;
+	}
 }

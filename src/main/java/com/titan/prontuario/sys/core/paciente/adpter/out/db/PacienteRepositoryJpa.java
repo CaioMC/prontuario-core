@@ -4,13 +4,13 @@ import com.titan.prontuario.sys.core.paciente.GetAllPacienteUseCase;
 import com.titan.prontuario.sys.core.paciente.domain.Paciente;
 import com.titan.prontuario.sys.core.paciente.domain.PacienteDomainRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.UUID;
 
-public interface PacienteRepositoryJpa extends PacienteDomainRepository, Repository<Paciente, UUID> {
+public interface PacienteRepositoryJpa extends PacienteDomainRepository, CrudRepository<Paciente, UUID> {
 
 	@Query(value = """
 			      SELECT p.id AS id, p.nome AS nome, p.telefone AS telefone, p.codigo AS codigo, a.data_atendimento as ultimaConsulta

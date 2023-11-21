@@ -2,6 +2,7 @@ package com.titan.prontuario.sys.core.paciente.domain;
 
 import com.titan.prontuario.sys.core.infra.config.domain.entity.AbstractAuditableAggregate;
 import com.titan.prontuario.sys.core.paciente.IncluirPacienteUseCase;
+import com.titan.prontuario.sys.core.paciente.UpdatePacienteUseCase;
 import com.titan.prontuario.sys.core.paciente.domain.enums.Sexo;
 import com.titan.prontuario.sys.core.paciente.domain.enums.Uf;
 import jakarta.persistence.Entity;
@@ -74,6 +75,33 @@ public class Paciente extends AbstractAuditableAggregate {
 				cmd.plano(),
 				cmd.validade()
 		);
+	}
+
+	public Paciente updatePaciente(UpdatePacienteUseCase.UpdatePacienteCommand cmd) {
+		this.nome = cmd.nome();
+		this.codigo = cmd.codigo();
+		this.nascimento = cmd.nascimento();
+		this.sexo = cmd.sexo();
+		this.email = cmd.email();
+		this.cpf = cmd.cpf();
+		this.rg = cmd.rg();
+		this.telefone = cmd.telefone();
+		this.telefoneTrabalho = cmd.telefoneTrabalho();
+		this.cep = cmd.cep();
+		this.endereco = cmd.endereco();
+		this.complemento = cmd.complemento();
+		this.cidade = cmd.cidade();
+		this.pais = cmd.pais();
+		this.numero = cmd.numero();
+		this.bairro = cmd.bairro();
+		this.uf = cmd.uf();
+		this.convenio = cmd.convenio();
+		this.numeroCarteirinha = cmd.numeroCarteirinha();
+		this.acomodacao = cmd.acomodacao();
+		this.plano = cmd.plano();
+		this.validade = cmd.validade();
+
+		return this;
 	}
 
 }
