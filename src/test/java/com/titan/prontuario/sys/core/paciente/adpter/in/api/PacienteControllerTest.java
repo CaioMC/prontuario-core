@@ -2,15 +2,12 @@ package com.titan.prontuario.sys.core.paciente.adpter.in.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.titan.prontuario.sys.core.paciente.IncluirPacienteUseCase;
-import com.titan.prontuario.sys.core.paciente.adpter.in.api.PacienteController;
 import com.titan.prontuario.sys.core.paciente.adpter.in.api.dto.IncluirPacienteDTO;
 import com.titan.prontuario.sys.core.paciente.adpter.in.api.dto.UpdatePacienteDTO;
 import com.titan.prontuario.sys.core.paciente.domain.Paciente;
 import com.titan.prontuario.sys.core.paciente.domain.PacienteDomainRepository;
 import com.titan.prontuario.sys.core.paciente.domain.enums.Sexo;
 import com.titan.prontuario.sys.core.paciente.domain.enums.Uf;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
