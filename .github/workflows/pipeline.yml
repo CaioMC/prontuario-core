@@ -6,7 +6,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  deploy:
+  build:
 
     name: Build and analyze
     runs-on: ubuntu-latest
@@ -45,14 +45,5 @@ jobs:
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_PRONTUARIO }}
-        run: mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=caiomc -Dsonar.projectKey=CaioMC_prontuario-core
-
-#      - name: Copy files with SSH - EC2
-#        uses: easingthemes/ssh-deploy@main
-#        env:
-#          SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
-#          SOURCE: "./"
-#          REMOTE_HOST: "ec2-3-22-223-104.us-east-2.compute.amazonaws.com"
-#          REMOTE_USER: "ec2-user"
-#          TARGET: "/home/ec2-user"
+          SONAR_TOKEN: "43493f33d30f5908d724da7029603d91cfa94245"
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=CaioMC_prontuario-core
