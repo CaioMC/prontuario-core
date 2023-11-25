@@ -54,7 +54,7 @@ public class PacienteController implements PacienteControllerOpenApi {
 	}
 
 	@GetMapping("/get-paciente")
-	public ResponseEntity<GetPacienteUseCase.GetPacienteProjetion> getPaciente(@RequestParam(required = false) String id) {
+	public ResponseEntity<GetPacienteUseCase.GetPacienteProjetion> getPaciente(@RequestParam String id) {
 		return ResponseEntity.ok(this.getPacienteUseCase.handle(new GetPacienteUseCase.GetPacienteCommand(UUID.fromString(id))));
 	}
 
@@ -65,7 +65,7 @@ public class PacienteController implements PacienteControllerOpenApi {
 	}
 
 	@PostMapping("/delete-paciente")
-	public ResponseEntity<Void> deletePaciente(@RequestParam(required = false) String id) {
+	public ResponseEntity<Void> deletePaciente(@RequestParam String id) {
 		this.deletePacienteUseCase.handle(new DeletePacienteUseCase.DeletePacienteCommand(UUID.fromString(id)));
 		return ResponseEntity.ok().build();
 	}

@@ -1,0 +1,20 @@
+spring:
+  jmx:
+    enabled: false
+
+  flyway:
+    enabled: true
+    baselineOnMigrate: true
+    schemas: it
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        '[default_schema]': it
+
+logging:
+  level:
+    '[org.hibernate.SQL]': DEBUG
+    '[org.hibernate.type]': TRACE

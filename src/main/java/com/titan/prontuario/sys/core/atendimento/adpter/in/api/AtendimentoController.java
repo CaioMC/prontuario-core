@@ -8,7 +8,6 @@ import com.titan.prontuario.sys.core.atendimento.UpdateAtendimentoUseCase;
 import com.titan.prontuario.sys.core.atendimento.adpter.in.api.dto.IncluirAtendimentoDTO;
 import com.titan.prontuario.sys.core.atendimento.adpter.in.api.dto.UpdateAtendimentoDTO;
 import com.titan.prontuario.sys.core.atendimento.adpter.in.api.openapi.AtendimentoOpenApi;
-import com.titan.prontuario.sys.core.paciente.adpter.in.api.PacienteController;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
@@ -24,10 +23,12 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(path = PacienteController.PATH, produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(path = AtendimentoController.PATH, produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
 @Tag(name = "Atendimento Controller")
 public class AtendimentoController implements AtendimentoOpenApi {
+
+	public static final String PATH = "api/atendimento";
 
 	private final IncluirAtendimentoUseCase incluirAtendimentoUseCase;
 	private final GetAllAtendimentoUseCase getAllAtendimentoUseCase;
