@@ -82,37 +82,8 @@ class PacienteControllerTest {
 
 	@Test
 	void testUpdatePacienteSuccess() throws Exception {
-		var IncluirPacienteCommand = new IncluirPacienteUseCase.IncluirPacienteCommand(
-				"7316",
-				"Marcos",
-				LocalDate.now(),
-				Sexo.MASCULINO,
-				"marcos@gmail.com",
-				"88976456769",
-				"2902020202",
-				"47996213534",
-				"47996213538",
-				"89221-009",
-				"endereco",
-				"complemento",
-				"cidade",
-				"pais",
-				123,
-				"bairro",
-				Uf.ACRE,
-				"converio",
-				123441,
-				"acomodacao",
-				"plano",
-				LocalDate.now()
-		);
-
-		var paciente = Paciente.registrarPaciente(IncluirPacienteCommand);
-
-		this.repository.save(paciente);
-
 		UpdatePacienteDTO updatePacienteDTO = new UpdatePacienteDTO(
-				paciente.getId().toString(),
+				"7f97bc90-c3cb-4c33-a5d0-1a755714b047",
 				"7316",
 				"Caio",
 				LocalDate.now(),
