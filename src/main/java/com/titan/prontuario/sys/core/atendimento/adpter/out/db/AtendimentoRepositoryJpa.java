@@ -27,7 +27,7 @@ public interface AtendimentoRepositoryJpa extends AtendimentoDomainRepository, C
 	);
 
 	@Query(value = """
-        SELECT CAST(a.id AS VARCHAR) AS id, a.queixa_principal AS queixaPrincipal, a.historico_antecedentes AS historicoAntecedentes,
+        SELECT CAST(a.id AS VARCHAR) AS id, CAST(p.id  AS VARCHAR) AS pacienteId, a.queixa_principal AS queixaPrincipal, a.historico_antecedentes AS historicoAntecedentes,
         a.exame_fisico AS exameFisico, a.condutas AS condutas, a.diagnostico AS diagnostico, a.data_atendimento AS dataAtendimento, p.nome AS pacienteNome
         FROM {h-schema}atendimento a
         INNER JOIN {h-schema}paciente p ON p.id = a.paciente_id

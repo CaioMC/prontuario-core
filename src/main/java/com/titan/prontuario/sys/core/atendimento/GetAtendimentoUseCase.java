@@ -13,6 +13,7 @@ public interface GetAtendimentoUseCase {
 
 	interface GetAtendimentoProjetion{
 		String getId();
+		String getPacienteId();
 		String getQueixaPrincipal();
 		String getHistoricoAntecedentes();
 		String getExameFisico();
