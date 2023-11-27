@@ -16,7 +16,7 @@ public interface AtendimentoRepositoryJpa extends AtendimentoDomainRepository, C
 	@Query(value = """
         SELECT a.id AS id, p.nome AS nomePaciente, a.queixa_principal AS queixaPrincipal, p.codigo AS codigo, a.diagnostico AS diagnostico
         FROM {h-schema}atendimento a
-            LEFT JOIN {h-schema}paciente p ON (:nomePaciente IS NULL OR p.nome ILIKE CONCAT('%', :nomePaciente, '%'))
+            INNER JOIN {h-schema}paciente p ON (:nomePaciente IS NULL OR p.nome ILIKE CONCAT('%', :nomePaciente, '%'))
         WHERE (:queixaPrincipal IS NULL OR a.queixa_principal ILIKE CONCAT('%', :queixaPrincipal, '%'))
         AND (:diagnostico IS NULL OR a.diagnostico ILIKE CONCAT('%', :diagnostico, '%'))
 		""", nativeQuery = true)
