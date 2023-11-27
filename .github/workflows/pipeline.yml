@@ -40,7 +40,7 @@ jobs:
         run: docker compose up -d
 
       - name: Mvn Clean and Install
-        run: mvn clean install
+        run: mvn clean package install && mvn clean install
 
       - name: Build and analyze
         env:
