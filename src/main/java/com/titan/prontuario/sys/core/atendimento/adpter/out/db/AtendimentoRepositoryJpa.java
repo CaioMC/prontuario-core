@@ -14,11 +14,12 @@ import java.util.UUID;
 public interface AtendimentoRepositoryJpa extends AtendimentoDomainRepository, CrudRepository<Atendimento, UUID> {
 
 	@Query(value = """
-        SELECT a.id AS id, p.nome AS nomePaciente, a.queixa_principal AS queixaPrincipal, p.codigo AS codigo, a.diagnostico AS diagnostico
-        FROM {h-schema}atendimento a
-            INNER JOIN {h-schema}paciente p ON (:nomePaciente IS NULL OR p.nome ILIKE CONCAT('%', :nomePaciente, '%'))
+        SELECT DISTINCT a.id AS id, p.nome AS nomePaciente, a.queixa_principal AS queixaPrincipal, p.codigo AS codigo, a.diagnostico AS diagnostico
+        FROM {h-schema}atendimento a 
+            INNER JOIN {h-schema}paciente p ON (p.id = a.paciente_id)
         WHERE (:queixaPrincipal IS NULL OR a.queixa_principal ILIKE CONCAT('%', :queixaPrincipal, '%'))
         AND (:diagnostico IS NULL OR a.diagnostico ILIKE CONCAT('%', :diagnostico, '%'))
+        AND (:nomePaciente IS NULL OR p.nome ILIKE CONCAT('%', :nomePaciente, '%'))
 		""", nativeQuery = true)
 	List<GetAllAtendimentoUseCase.GetAllAtendimentoProjetion> getAllAtendimentos(
 			@Param("nomePaciente") String nomePaciente,
