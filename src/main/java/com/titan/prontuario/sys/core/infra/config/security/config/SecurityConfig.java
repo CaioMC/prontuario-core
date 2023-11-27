@@ -36,7 +36,7 @@ public class SecurityConfig {
 										.anyRequest().permitAll()
 				)
 				.csrf(AbstractHttpConfigurer::disable)
-				.cors(cors -> cors.configurationSource(corsConfigurationSource()))
+				.cors(cors -> cors.configurationSource(this.corsConfigurationSource()))
 				.httpBasic(AbstractHttpConfigurer::disable)
 				.sessionManagement(httpSecuritConfigurer -> httpSecuritConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.addFilterBefore(this.jwtFilter(), UsernamePasswordAuthenticationFilter.class);
